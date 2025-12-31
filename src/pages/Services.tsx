@@ -11,15 +11,12 @@ import {
   Factory,
   CheckCircle,
   ArrowRight,
-  AlertTriangle,
-  Lightbulb,
-  FireExtinguisher
+  AlertTriangle
 } from 'lucide-react';
 
 import heroImage from '@/assets/hero-fire-suppression.jpg';
 import hvacImage from '@/assets/hvac-service.jpg';
 import kitchenExhaustImage from '@/assets/kitchen-exhaust.jpg';
-import sprinklerImage from '@/assets/sprinkler-system.jpg';
 import industrialImage from '@/assets/industrial-system.jpg';
 
 const services = [
@@ -72,7 +69,7 @@ const services = [
     title: 'Gas Piping & Mechanical Services',
     subtitle: 'Commercial Applications',
     description: 'Expert gas piping and mechanical modifications for commercial facilities.',
-    image: sprinklerImage,
+    image: '/gas-piping.jpg', // ✅ from public
     features: [
       'Commercial gas piping installation',
       'Tenant improvements',
@@ -100,32 +97,14 @@ const Services = () => {
   return (
     <>
       <Helmet>
-        <title>Our Services | Fire Suppression, HVAC & Commercial Mechanical | Desert In Alaska Corp</title>
-        <meta 
-          name="description" 
-          content="Explore our comprehensive fire suppression, commercial HVAC, kitchen exhaust, gas piping, and industrial dry chemical services in Metro Detroit. Licensed & certified." 
+        <title>Our Services | Fire Suppression, HVAC & Commercial Mechanical</title>
+        <meta
+          name="description"
+          content="Fire suppression, HVAC, kitchen exhaust, gas piping, and industrial dry chemical services."
         />
       </Helmet>
-      <Layout>
-        {/* Hero */}
-        <section className="relative py-24 bg-primary text-primary-foreground">
-          <div className="container-wide">
-            <AnimatedSection className="max-w-3xl">
-              <span className="text-accent font-medium tracking-wider uppercase text-sm">
-                Our Services
-              </span>
-              <h1 className="font-display text-5xl md:text-6xl mt-3 mb-6">
-                COMPREHENSIVE<br />
-                <span className="text-accent">SAFETY SOLUTIONS</span>
-              </h1>
-              <p className="text-primary-foreground/80 text-lg leading-relaxed">
-                From fire suppression systems to commercial HVAC, we provide complete 
-                mechanical solutions for your business.
-              </p>
-            </AnimatedSection>
-          </div>
-        </section>
 
+      <Layout>
         {/* Services List */}
         <section className="section-padding bg-background">
           <div className="container-wide space-y-24">
@@ -136,9 +115,7 @@ const Services = () => {
               >
                 <div
                   id={service.id}
-                  className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
-                    index % 2 === 1 ? 'lg:flex-row-reverse' : ''
-                  }`}
+                  className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
                 >
                   <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
                     <div className="relative rounded-xl overflow-hidden shadow-lg">
@@ -164,27 +141,34 @@ const Services = () => {
                         {service.subtitle}
                       </span>
                     </div>
-                    <h2 className="font-display text-3xl md:text-4xl text-foreground mb-4">
+
+                    <h2 className="font-display text-3xl md:text-4xl mb-4">
                       {service.title}
                     </h2>
+
                     <p className="text-muted-foreground text-lg mb-6">
                       {service.description}
                     </p>
+
                     <ul className="space-y-3 mb-6">
                       {service.features.map((feature) => (
                         <li key={feature} className="flex items-start gap-3">
-                          <CheckCircle className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                          <span className="text-foreground">{feature}</span>
+                          <CheckCircle className="w-5 h-5 text-accent mt-0.5" />
+                          <span>{feature}</span>
                         </li>
                       ))}
                     </ul>
+
                     {service.note && (
                       <div className="flex items-start gap-3 p-4 bg-muted rounded-lg mb-6">
-                        <AlertTriangle className="w-5 h-5 text-muted-foreground shrink-0 mt-0.5" />
-                        <span className="text-muted-foreground text-sm">{service.note}</span>
+                        <AlertTriangle className="w-5 h-5 text-muted-foreground mt-0.5" />
+                        <span className="text-sm text-muted-foreground">
+                          {service.note}
+                        </span>
                       </div>
                     )}
-                    <Button variant="default" asChild>
+
+                    <Button asChild>
                       <Link to="/contact">
                         Request Service <ArrowRight className="w-4 h-4" />
                       </Link>
@@ -193,26 +177,6 @@ const Services = () => {
                 </div>
               </AnimatedSection>
             ))}
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section className="section-padding bg-accent text-accent-foreground">
-          <div className="container-wide text-center">
-            <AnimatedSection>
-              <h2 className="font-display text-4xl md:text-5xl mb-6">
-                READY TO GET STARTED?
-              </h2>
-              <p className="text-accent-foreground/80 text-lg mb-8 max-w-2xl mx-auto">
-                Contact us today for a free consultation and quote on your fire suppression, 
-                HVAC, or commercial mechanical project.
-              </p>
-              <Button variant="heroOutline" size="xl" asChild>
-                <Link to="/contact">
-                  Request a Free Quote <ArrowRight className="w-5 h-5" />
-                </Link>
-              </Button>
-            </AnimatedSection>
           </div>
         </section>
       </Layout>

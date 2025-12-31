@@ -38,13 +38,14 @@ const services = [
     icon: ChefHat,
     image: kitchenExhaustImage,
   },
-  {
-    id: 'gas-piping',
-    title: 'Gas Piping & Mechanical',
-    description: 'Commercial gas piping, tenant improvements, and system modifications for commercial facilities.',
-    icon: Fuel,
-    image: hvacImage,
-  },
+{
+  id: 'gas-piping',
+  title: 'Gas Piping & Mechanical',
+  description: 'Commercial gas piping, tenant improvements, and system modifications for commercial facilities.',
+  icon: Fuel,
+  image: '/gas-piping.jpg', // ✅ from public
+},
+
   {
     id: 'industrial',
     title: 'Industrial Dry Chemical Systems',

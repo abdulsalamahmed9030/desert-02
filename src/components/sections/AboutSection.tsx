@@ -10,7 +10,7 @@ const highlights = [
   'Certified technicians',
   'Code-compliant installations',
   'Commercial & industrial expertise',
-  '24/7 emergency service available',
+  
 ];
 
 export function AboutSection() {

@@ -26,7 +26,7 @@ const services = [
     title: 'Fire Suppression & Life Safety',
     subtitle: 'Primary Focus',
     description: 'Comprehensive fire safety solutions for commercial and industrial facilities.',
-    image: heroImage,
+    image: '/1.jpg',
     features: [
       'Commercial kitchen fire suppression systems (full installation and service)',
       'Fire sprinkler systems (tenant improvements: modifications, relocations, head replacements)',
